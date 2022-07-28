@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package service.event.v1;
+
+option go_package = "github.com/mTeeeur/proto/pkg/service/event/v1";
+
+service EventService {
+}

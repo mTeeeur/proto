@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package model.v1;
+
+option go_package = "github.com/mTeeeur/proto/pkg/model/v1";
+
+message Attendee {
+    string name = 1;
+    string email = 2;
+}
+
+message Attendees {
+    repeated Attendee value = 1;
+}

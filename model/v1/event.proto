@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package model.v1;
+
+option go_package = "github.com/mTeeeur/proto/pkg/model/v1";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "model/v1/attendee.proto";
+import "model/v1/place.proto";
+
+message Event {
+    string id = 1;
+    string subject = 2;
+    google.protobuf.Timestamp start_time = 3;
+    google.protobuf.Duration duration = 4;
+    Place location = 5;
+    optional Attendees attendees = 6;
+}
+
+message Events {
+    repeated Event values = 1;
+}

@@ -2,10 +2,14 @@ syntax = "proto3";
 
 package model.v1;
 
-option go_package = "github.com/mteeeur/proto/gen/model";
+option go_package = "github.com/mTeeeur/proto/pkg/model/v1";
+
+import "model/v1/event.proto";
 
 message User {
-    string email = 1;
-    string slack_id = 2;
+    string id = 1;
+    string email = 2;
     int64 telegram_id = 3;
+    string slack_id = 4;
+    optional Events events = 5;
 }
