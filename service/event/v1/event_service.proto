@@ -4,5 +4,42 @@ package service.event.v1;
 
 option go_package = "github.com/mTeeeur/proto/pkg/service/event/v1";
 
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "model/v1/attendee.proto";
+import "model/v1/event.proto";
+import "model/v1/place.proto";
+
 service EventService {
+    rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse);
+
+    rpc GetEvent(GetEventRequest) returns (GetEventResponse);
+
+    rpc DeleteEvent(DeleteEventRequest) returns (DeleteEventResponse);
 }
+
+message CreateEventRequest {
+    string subject = 2;
+    google.protobuf.Timestamp start_time = 3;
+    google.protobuf.Duration duration = 4;
+    model.v1.Place location = 5;
+    optional model.v1.Attendees attendees = 6;
+}
+
+message CreateEventResponse {
+    string id = 1;
+}
+
+message GetEventRequest {
+    string id = 1;
+}
+
+message GetEventResponse {
+    model.v1.Event event = 1;
+}
+
+message DeleteEventRequest {
+    string id = 1;
+}
+
+message DeleteEventResponse {}
