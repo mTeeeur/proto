@@ -1,3 +1,3 @@
-module gitlab.itechart-group.com/roomBot/proto
+module github.com/mteeeur/proto
 
 go 1.18

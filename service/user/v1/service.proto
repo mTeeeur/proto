@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package service.user.v1;
+
+import "model/v1/user.proto";
+
+option go_package = "github.com/mteeeur/proto/gen/service/user";
+
+service UsersService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+}
+
+message CreateUserRequest {
+    model.v1.User user = 1;
+}
+
+message CreateUserResponse {}
